@@ -36,12 +36,8 @@ class Instruction:
     _to: int
 
 
-Model = Literal["CrateMover 9001", "CrateMover 9000"]
-
-
 @dataclass
 class CrateMover:
-    model: Model
     instructions: List[Instruction]
     stacks: List[DefaultDict[str, List[str]]]
 
@@ -95,7 +91,6 @@ def parse(lines):
             )
 
     c9000 = CrateMover9000(
-        model="CrateMover 9000",
         instructions=instructions,
         stacks=deepcopy(stacks),
     )
@@ -103,7 +98,6 @@ def parse(lines):
     print("1", c9000)
 
     c9001 = CrateMover9001(
-        model="CrateMover 9001",
         instructions=instructions,
         stacks=deepcopy(stacks),
     )
